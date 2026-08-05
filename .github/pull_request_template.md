@@ -1,19 +1,19 @@
-## Summary / Тойм
+## Тойм / Summary
 
-<!-- What does this PR do? / Энэ PR юу хийдэг вэ? -->
+<!-- Энэ PR юу хийдэг вэ? / What does this PR do? -->
 
-## Changes / Өөрчлөлтүүд
+## Өөрчлөлтүүд / Changes
 
 - 
 
-## Test plan / Тестийн төлөвлөгөө
+## Тест / Test plan
 
-- [ ] `uv run pytest` passes
+- [ ] `uv run pytest` passed
 - [ ] MCP server starts: `uv run unegui-mcp`
-- [ ] Tested in MCP client (Cursor / Claude Desktop / other):
+- [ ] Tested in MCP client:
 
 ## Checklist
 
-- [ ] Bilingual strings updated in `i18n.py` / `categories.py` if needed
-- [ ] `CHANGELOG.md` updated for user-facing changes
-- [ ] No secrets or personal paths committed
+- [ ] `i18n.py` / `categories.py` шинэчлэгдсэн (шаардлагатай бол)
+- [ ] `CHANGELOG.md` шинэчлэгдсэн
+- [ ] Нууц түлхүүр, хувийн зам commit хийгдээгүй

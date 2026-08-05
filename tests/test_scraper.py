@@ -31,6 +31,16 @@ def test_categories_for_api_shape() -> None:
     assert "cars_for_sale" in api["vehicles"]["subcategories"]
 
 
+def test_bilingual_messages_default_mongolian() -> None:
+    from unegui_mcp.i18n import DEFAULT_LANG, bilingual, t
+
+    assert DEFAULT_LANG == "mn"
+    assert t("no_listings").startswith("Зар олдсонгүй")
+    msgs = bilingual("no_listings")
+    assert msgs["message"] == t("no_listings", "mn")
+    assert msgs["message_en"] == t("no_listings", "en")
+
+
 def test_format_bilingual_name() -> None:
     assert format_bilingual_name("Тээврийн хэрэгсэл", "Vehicles") == "Тээврийн хэрэгсэл (Vehicles)"
 
