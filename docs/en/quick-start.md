@@ -1,6 +1,6 @@
 # Quick start
 
-[← Back](../../README.en.md)
+[← Back](README.md)
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 # MCP configuration
 
-[← Back](../../README.en.md)
+[← Back](README.md)
 
 ## Cursor / VS Code
 

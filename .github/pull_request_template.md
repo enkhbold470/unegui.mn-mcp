@@ -15,5 +15,5 @@
 ## Checklist
 
 - [ ] `i18n.py` / `categories.py` шинэчлэгдсэн (шаардлагатай бол)
-- [ ] `CHANGELOG.md` шинэчлэгдсэн
+- [ ] `docs/CHANGELOG.md` шинэчлэгдсэн
 - [ ] Нууц түлхүүр, хувийн зам commit хийгдээгүй

@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - **Mongolian is now the default language** across docs, MCP instructions, and API messages
-- `README.md` is Mongolian; English docs moved to `README.en.md`
+- `README.md` is Mongolian; English landing page at `docs/en/README.md`
+- Project docs (`CONTRIBUTING`, `CHANGELOG`, etc.) moved under `docs/`
 - API responses use `message` (MN) + `message_en` (EN) instead of the reverse
 
 ## [1.0.0] - 2026-08-04

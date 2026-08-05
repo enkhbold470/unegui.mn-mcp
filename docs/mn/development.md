@@ -7,4 +7,4 @@ uv sync --extra dev
 uv run pytest
 ```
 
-Дэлгэрэнгүй: [CONTRIBUTING.md](../../CONTRIBUTING.md)
+Дэлгэрэнгүй: [CONTRIBUTING.md](../CONTRIBUTING.md)

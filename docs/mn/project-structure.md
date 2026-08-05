@@ -10,8 +10,12 @@ unegui.mn-mcp/
 │   ├── categories.py    # Ангиллын жагсаалт (MN/EN)
 │   └── i18n.py          # Монгол/англи текст
 ├── tests/
-├── docs/                # Баримт бичиг
-├── README.md            # Монгол
-├── README.en.md         # English
+├── docs/                # Бүх баримт бичиг
+│   ├── mn/              # Монгол гарын авлага
+│   ├── en/              # English guides
+│   ├── CONTRIBUTING.md
+│   ├── CHANGELOG.md
+│   └── ...
+├── README.md            # Монгол танилцуулга
 └── LICENSE
 ```

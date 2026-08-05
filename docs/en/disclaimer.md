@@ -1,6 +1,6 @@
 # Disclaimer
 
-[← Back](../../README.en.md)
+[← Back](README.md)
 
 This project scrapes **publicly available** data from unegui.mn. Please use responsibly:
 

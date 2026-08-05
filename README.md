@@ -1,6 +1,6 @@
 # Unegui.mn MCP Сервер
 
-**Монгол** | [English](README.en.md)
+**Монгол** | [English](docs/en/README.md)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
@@ -24,6 +24,15 @@
 | [Төслийн бүтэц](docs/mn/project-structure.md) | Файлын бүтэц |
 | [Хөгжүүлэлт](docs/mn/development.md) | Тест, хувь нэмэр оруулах |
 | [Анхааруулга](docs/mn/disclaimer.md) | Хариуцлага, хязгаарлалт |
+
+## Төсөл
+
+| | |
+|---|---|
+| [Хамтран хөгжүүлэх](docs/CONTRIBUTING.md) | Хувь нэмэр оруулах заавар |
+| [Өөрчлөлтийн түүх](docs/CHANGELOG.md) | Хувилбарын түүх |
+| [Аюулгүй байдал](docs/SECURITY.md) | Эмзэг байдлыг мэдээлэх |
+| [Зөвлөмж](docs/CODE_OF_CONDUCT.md) | Оролцогчдын ёс зүй |
 
 ## Лиценз
 

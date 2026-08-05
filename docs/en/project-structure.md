@@ -1,6 +1,6 @@
 # Project structure
 
-[← Back](../../README.en.md)
+[← Back](README.md)
 
 ```
 unegui.mn-mcp/
@@ -10,8 +10,12 @@ unegui.mn-mcp/
 │   ├── categories.py    # Category list (MN/EN)
 │   └── i18n.py          # Mongolian/English strings
 ├── tests/
-├── docs/                # Documentation
-├── README.md            # Mongolian
-├── README.en.md         # English
+├── docs/                # All documentation
+│   ├── mn/              # Mongolian guides
+│   ├── en/              # English guides
+│   ├── CONTRIBUTING.md
+│   ├── CHANGELOG.md
+│   └── ...
+├── README.md            # Mongolian landing page
 └── LICENSE
 ```

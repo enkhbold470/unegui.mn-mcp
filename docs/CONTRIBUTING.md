@@ -35,8 +35,8 @@ uv run pytest       # unit тест
 
 ## Алдаа мэдэгдэх
 
-- [Bug report](.github/ISSUE_TEMPLATE/bug_report.md) загвар ашиглана
-- [Feature request](.github/ISSUE_TEMPLATE/feature_request.md) загвар ашиглана
+- [Bug report](../.github/ISSUE_TEMPLATE/bug_report.md) загвар ашиглана
+- [Feature request](../.github/ISSUE_TEMPLATE/feature_request.md) загвар ашиглана
 - MCP клиент (Cursor, Claude Desktop г.м.) болон Python хувилбарыг заавал бичнэ
 
 ## Scraper өөрчлөлт
