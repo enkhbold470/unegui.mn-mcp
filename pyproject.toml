@@ -1,0 +1,62 @@
+[project]
+name = "unegui-mcp"
+version = "1.0.0"
+description = "MCP server for unegui.mn — Mongolia's largest classifieds marketplace / Монголын хамгийн том зарын сайтын MCP сервер"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [
+    { name = "Enkhbold Ganbold", email = "enkhbold470@gmail.com" },
+]
+keywords = [
+    "mcp",
+    "unegui",
+    "mongolia",
+    "classifieds",
+    "marketplace",
+    "model-context-protocol",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+    "Natural Language :: English",
+]
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "curl-cffi>=0.16.0",
+    "lxml>=6.1.1",
+    "mcp[cli]>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+]
+
+[project.urls]
+Homepage = "https://github.com/enkhbold470/unegui.mn-mcp"
+Repository = "https://github.com/enkhbold470/unegui.mn-mcp"
+Issues = "https://github.com/enkhbold470/unegui.mn-mcp/issues"
+Documentation = "https://github.com/enkhbold470/unegui.mn-mcp#readme"
+
+[project.scripts]
+unegui-mcp = "unegui_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/unegui_mcp"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+markers = [
+    "integration: live network tests against unegui.mn (not run in CI)",
+]
