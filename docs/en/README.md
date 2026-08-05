@@ -10,7 +10,9 @@
 
 Search, browse, and retrieve detailed listings for vehicles, real estate, electronics, jobs, and more — directly from your AI assistant. **Mongolian is the default language**; English queries are also supported.
 
-![Example: motorcycle listings from unegui.mn in Claude](../demo-motorcycles-claude.webp)
+![MCP off vs unegui-mn MCP on comparison](../demo-mcp-comparison.png)
+
+*Left: plain ChatGPT — generic answer, no direct links. Right: unegui-mn MCP — live listings with price, location, and clickable ad links.*
 
 ## Documentation
 

@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Project docs (`CONTRIBUTING`, `CHANGELOG`, etc.) moved under `docs/`
 - API responses use `message` (MN) + `message_en` (EN) instead of the reverse
 
+### Added
+- MCP on/off comparison screenshot in README and usage examples
+
 ## [1.0.0] - 2026-08-04
 
 ### Added
