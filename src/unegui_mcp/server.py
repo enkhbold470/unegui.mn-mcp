@@ -1,11 +1,11 @@
 """
-Unegui.mn MCP Server / unegui.mn MCP сервер
+unegui.mn MCP сервер / Unegui.mn MCP Server
 ============================================
 
-Model Context Protocol server for Mongolia's largest classifieds platform.
 Монголын хамгийн том зарын платформ unegui.mn-д зориулсан MCP сервер.
+Model Context Protocol server for Mongolia's largest classifieds platform.
 
-Author / Зохиогч: Enkhbold Ganbold (https://github.com/enkhbold470)
+Зохиогч / Author: Enkhbold Ganbold (https://github.com/enkhbold470)
 """
 
 import json
@@ -13,7 +13,7 @@ import json
 from mcp.server import MCPServer
 
 from unegui_mcp.categories import categories_for_api
-from unegui_mcp.i18n import MESSAGES, SERVER_INSTRUCTIONS
+from unegui_mcp.i18n import SERVER_INSTRUCTIONS, bilingual
 from unegui_mcp.scraper import UneguiScraper
 
 mcp = MCPServer(
@@ -31,20 +31,20 @@ async def search_listings(
     page: int = 1,
 ) -> str:
     """
-    Search unegui.mn for listings matching a query.
     unegui.mn дээр түлхүүр үгээр зар хайна.
+    Search unegui.mn for listings matching a query.
 
     Args:
-        query: Search term / Хайлтын үг
-               (e.g. "Toyota Prius", "2 өрөө орон сууц", "Land Cruiser 300")
-        category: Optional category key / Сонголттой ангилал
+        query: Хайлтын үг / Search term
+               (жишээ: "Toyota Prius", "2 өрөө орон сууц", "Land Cruiser 300")
+        category: Сонголттой ангилал / Optional category key
                   (vehicles, real_estate, electronics, jobs, services,
                    clothing, furniture, pets, hobby, education)
-        page: Page number / Хуудасны дугаар (default: 1)
+        page: Хуудасны дугаар / Page number (default: 1)
 
     Returns:
-        JSON with matching listings (title, price, URL, location, date).
         Тохирох заруудын JSON (гарчиг, үнэ, холбоос, байршил, огноо).
+        JSON with matching listings (title, price, URL, location, date).
     """
     try:
         listings = await scraper.search(query=query, category=category, page=page)
@@ -58,8 +58,7 @@ async def search_listings(
                     "page": page,
                     "count": 0,
                     "listings": [],
-                    "message": MESSAGES["no_listings"]["en"],
-                    "message_mn": MESSAGES["no_listings"]["mn"],
+                    **bilingual("no_listings"),
                 },
                 ensure_ascii=False,
                 indent=2,
@@ -97,21 +96,21 @@ async def browse_category(
     page: int = 1,
 ) -> str:
     """
-    Browse listings in a specific category on unegui.mn.
     unegui.mn дээр тодорхой ангиллын заруудыг үзнэ.
+    Browse listings in a specific category on unegui.mn.
 
     Args:
-        category: Category key / Ангиллын түлхүүр
+        category: Ангиллын түлхүүр / Category key
                   (vehicles, real_estate, electronics, jobs, services,
                    clothing, furniture, pets, hobby, education)
-        subcategory: Optional subcategory key / Дэд ангилал
-                     Use list_categories to see available keys.
+        subcategory: Дэд ангилал / Optional subcategory key
+                     list_categories хэрэгслээр жагсаалтыг харна.
                      Жишээ: vehicles → cars_for_sale, car_parts
-        page: Page number / Хуудасны дугаар (default: 1)
+        page: Хуудасны дугаар / Page number (default: 1)
 
     Returns:
-        JSON with listings from the specified category.
         Тухайн ангиллын заруудын JSON.
+        JSON with listings from the specified category.
     """
     try:
         listings = await scraper.browse_category(
@@ -156,16 +155,16 @@ async def browse_category(
 @mcp.tool()
 async def get_listing_details(url: str) -> str:
     """
-    Get detailed information about a specific listing on unegui.mn.
     Нэг зарын дэлгэрэнгүй мэдээллийг авна.
+    Get detailed information about a specific listing on unegui.mn.
 
     Args:
-        url: Full listing URL / Зарын бүтэн холбоос
-             (e.g. "https://www.unegui.mn/adv/12345_...")
+        url: Зарын бүтэн холбоос / Full listing URL
+             (жишээ: "https://www.unegui.mn/adv/12345_...")
 
     Returns:
-        JSON with title, price, description, location, images, and specs.
         Гарчиг, үнэ, тайлбар, байршил, зураг, үзүүлэлтүүд бүхий JSON.
+        JSON with title, price, description, location, images, and specs.
     """
     try:
         listing = await scraper.get_listing_detail(url)
@@ -202,12 +201,12 @@ async def get_listing_details(url: str) -> str:
 @mcp.tool()
 async def list_categories() -> str:
     """
-    List all available categories and subcategories on unegui.mn.
     unegui.mn-ийн бүх ангилал, дэд ангиллыг жагсаана.
+    List all available categories and subcategories on unegui.mn.
 
     Returns:
-        JSON with bilingual category names (English and Mongolian).
-        Англи, Монгол хэлээр ангиллын нэрс бүхий JSON.
+        Монгол, англи хэлээр ангиллын нэрс бүхий JSON.
+        JSON with bilingual category names (Mongolian default).
     """
     return json.dumps(
         {
@@ -222,16 +221,16 @@ async def list_categories() -> str:
 @mcp.tool()
 async def get_recent_listings(limit: int = 20) -> str:
     """
-    Get the most recent listings from the unegui.mn homepage.
     unegui.mn нүүр хуудасны хамгийн сүүлийн заруудыг авна.
+    Get the most recent listings from the unegui.mn homepage.
 
     Args:
-        limit: Maximum listings to return / Буцаах зарын дээд тоо
+        limit: Буцаах зарын дээд тоо / Maximum listings to return
                (default: 20, max: 50)
 
     Returns:
-        JSON with recent listings across all categories.
         Бүх ангиллын сүүлийн заруудын JSON.
+        JSON with recent listings across all categories.
     """
     limit = min(max(1, limit), 50)
 
@@ -260,7 +259,7 @@ async def get_recent_listings(limit: int = 20) -> str:
 
 
 def main() -> None:
-    """Run the MCP server via stdio / MCP серверийг stdio-оор ажиллуулна."""
+    """MCP серверийг stdio-оор ажиллуулна / Run the MCP server via stdio."""
     import asyncio
 
     asyncio.run(mcp.run_stdio_async())

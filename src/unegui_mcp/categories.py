@@ -176,8 +176,8 @@ def categories_for_api() -> dict[str, Any]:
     for key, info in CATEGORIES.items():
         entry: dict[str, Any] = {
             "key": key,
-            "name_en": info["name_en"],
             "name_mn": info["name_mn"],
+            "name_en": info["name_en"],
             "name": format_bilingual_name(info["name_mn"], info["name_en"]),
         }
         subcats = info.get("subcategories", {})
@@ -185,8 +185,8 @@ def categories_for_api() -> dict[str, Any]:
             entry["subcategories"] = {
                 sub_key: {
                     "key": sub_key,
-                    "name_en": sub_info["name_en"],
                     "name_mn": sub_info["name_mn"],
+                    "name_en": sub_info["name_en"],
                     "name": format_bilingual_name(
                         sub_info["name_mn"],
                         sub_info["name_en"],
