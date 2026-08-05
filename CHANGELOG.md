@@ -7,18 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-- Bilingual English/Mongolian documentation (`README.md`, `README.mn.md`)
-- `categories.py` and `i18n.py` modules for structured EN/MN support
-- Unit tests with HTML fixtures (offline)
-- GitHub issue templates, PR template, and CI workflow
-- `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`
-
 ### Changed
-- Replaced `httpx` with `curl_cffi` for TLS browser impersonation (fixes HTTP 403)
-- Updated HTML selectors for current unegui.mn layout
-- Fixed category URL paths (`/avto-mashin/` etc.)
-- Search now uses `/search/?q=` endpoint
+- **Mongolian is now the default language** across docs, MCP instructions, and API messages
+- `README.md` is Mongolian; English docs moved to `README.en.md`
+- API responses use `message` (MN) + `message_en` (EN) instead of the reverse
 
 ## [1.0.0] - 2026-08-04
 

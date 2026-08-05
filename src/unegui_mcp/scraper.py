@@ -15,7 +15,6 @@ from bs4 import BeautifulSoup, Tag
 from curl_cffi.requests import AsyncSession, RequestsError
 
 from unegui_mcp.categories import CATEGORIES
-from unegui_mcp.i18n import MESSAGES
 
 BASE_URL = "https://www.unegui.mn"
 
@@ -259,9 +258,9 @@ class UneguiScraper:
             url: Full URL to the listing page (must be a unegui.mn URL)
         """
         if "unegui.mn" not in url:
-            raise ValueError(
-                f"{MESSAGES['invalid_url']['en']} / {MESSAGES['invalid_url']['mn']}"
-            )
+            from unegui_mcp.i18n import t
+
+            raise ValueError(f"{t('invalid_url')} / {t('invalid_url', 'en')}")
 
         try:
             html = await self._fetch(url)

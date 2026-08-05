@@ -1,7 +1,7 @@
 [project]
 name = "unegui-mcp"
 version = "1.0.0"
-description = "MCP server for unegui.mn — Mongolia's largest classifieds marketplace / Монголын хамгийн том зарын сайтын MCP сервер"
+description = "Монголын хамгийн том зарын сайтын MCP сервер / MCP server for unegui.mn — Mongolia's classifieds marketplace"
 readme = "README.md"
 requires-python = ">=3.12"
 license = "MIT"
@@ -9,12 +9,27 @@ authors = [
     { name = "Enkhbold Ganbold", email = "enkhbold470@gmail.com" },
 ]
 keywords = [
-    "mcp",
+    "unegui.mn",
     "unegui",
+    "unegui-mn",
     "mongolia",
+    "mongolian",
+    "ulaanbaatar",
     "classifieds",
     "marketplace",
+    "zarlaga",
+    "real-estate",
+    "vehicles",
+    "cars",
+    "jobs",
+    "electronics",
+    "mcp",
     "model-context-protocol",
+    "cursor",
+    "claude",
+    "ai-assistant",
+    "llm-tools",
+    "web-scraping",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",

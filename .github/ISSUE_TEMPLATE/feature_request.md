@@ -1,22 +1,9 @@
 ---
-name: Feature request / Санал хүсэлт
-about: Suggest an improvement
-title: "[Feature]: "
+name: Санал хүсэлт / Feature request
+about: Сайжруулалт санал болгох
+title: "[Санал / Feature]: "
 labels: enhancement
 assignees: ""
----
-
-## English
-
-**Problem**
-What problem does this solve?
-
-**Proposed solution**
-Describe what you'd like added or changed.
-
-**Alternatives considered**
-Any other approaches you thought about.
-
 ---
 
 ## Монгол
@@ -27,3 +14,13 @@ Any other approaches you thought about.
 **Санал болгож буй шийдэл**
 
 **Бусад сонголтууд**
+
+---
+
+## English
+
+**Problem**
+
+**Proposed solution**
+
+**Alternatives considered**
