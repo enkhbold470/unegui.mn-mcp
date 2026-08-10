@@ -4,7 +4,7 @@
 
 If you discover a security issue, please **do not** open a public GitHub issue.
 
-Instead, email **enkhbold470@gmail.com** with:
+Instead, email **53986637+enkhbold470@users.noreply.github.com** with:
 
 - Description of the vulnerability
 - Steps to reproduce

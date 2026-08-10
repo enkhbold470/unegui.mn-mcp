@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 license = "MIT"
 authors = [
-    { name = "Enkhbold Ganbold", email = "enkhbold470@gmail.com" },
+    { name = "Enkhbold Ganbold", email = "53986637+enkhbold470@users.noreply.github.com" },
 ]
 keywords = [
     "unegui.mn",
