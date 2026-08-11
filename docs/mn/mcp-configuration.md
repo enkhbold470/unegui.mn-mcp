@@ -7,7 +7,7 @@
 Терминал дээр дараах тушаалыг ажиллуулбал Claude Desktop болон Cursor-ийн тохиргоог автоматаар хийнэ:
 
 ```bash
-npx @enkhbold470/unegui-mcp install
+npx -y unegui.mn-mcp install
 ```
 
 ## 🛠️ Гар тохиргоо
@@ -19,7 +19,7 @@ npx @enkhbold470/unegui-mcp install
   "mcpServers": {
     "unegui-mcp": {
       "command": "npx",
-      "args": ["-y", "@enkhbold470/unegui-mcp"]
+      "args": ["-y", "unegui.mn-mcp"]
     }
   }
 }

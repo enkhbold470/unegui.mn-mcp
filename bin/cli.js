@@ -14,10 +14,10 @@ if (args.includes('--help') || args.includes('-h')) {
 Unegui.mn MCP Server CLI (${packageJson.version})
 
 Usage:
-  npx unegui-mcp              Run the MCP server (STDIO mode)
-  npx unegui-mcp install      Auto-configure Claude Desktop & Cursor
-  npx unegui-mcp --version    Display version
-  npx unegui-mcp --help       Show this help message
+  npx -y unegui.mn-mcp          Run the MCP server (STDIO mode)
+  npx -y unegui.mn-mcp install  Auto-configure Claude Desktop & Cursor
+  bunx unegui.mn-mcp            Run using BunX
+  npx -y unegui.mn-mcp --help   Show this help message
 
 Description:
   Монголын хамгийн том зарын сайтын MCP сервер / MCP server for unegui.mn.

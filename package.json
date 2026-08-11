@@ -1,11 +1,12 @@
 {
-  "name": "@enkhbold470/unegui-mcp",
-  "version": "1.0.6",
+  "name": "unegui.mn-mcp",
+  "version": "1.0.1",
   "description": "Монголын хамгийн том зарын сайтын MCP сервер / MCP server for unegui.mn — Mongolia's classifieds marketplace",
   "publishConfig": {
     "access": "public"
   },
   "bin": {
+    "unegui.mn-mcp": "bin/cli.js",
     "unegui-mcp": "bin/cli.js"
   },
   "files": [

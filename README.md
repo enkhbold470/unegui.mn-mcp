@@ -16,14 +16,14 @@
 
 ```bash
 # 1. Claude Desktop & Cursor-д автоматаар суулгах:
-npx -y @enkhbold470/unegui-mcp install
+npx -y unegui.mn-mcp install
 # эсвэл bunx:
-bunx @enkhbold470/unegui-mcp install
+bunx unegui.mn-mcp install
 
 # 2. MCP серверийг шууд ажиллуулах (STDIO mode):
-npx -y @enkhbold470/unegui-mcp
+npx -y unegui.mn-mcp
 # эсвэл bunx:
-bunx @enkhbold470/unegui-mcp
+bunx unegui.mn-mcp
 ```
 
 ## Баримт бичиг

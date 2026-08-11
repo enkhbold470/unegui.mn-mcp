@@ -11,10 +11,10 @@
 
 ```bash
 # Claude Desktop & Cursor-д автоматаар суулгах
-npx @enkhbold470/unegui-mcp install
+npx -y unegui.mn-mcp install
 
 # MCP серверийг шууд ажиллуулах
-npx @enkhbold470/unegui-mcp
+npx -y unegui.mn-mcp
 ```
 
 ## Эх кодноос ажиллуулах

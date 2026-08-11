@@ -16,10 +16,10 @@ Search, browse, and retrieve detailed listings for vehicles, real estate, electr
 
 ```bash
 # 1. Auto-configure Claude Desktop or Cursor:
-npx @enkhbold470/unegui-mcp install
+npx -y unegui.mn-mcp install
 
 # 2. Or run the stdio MCP server directly:
-npx @enkhbold470/unegui-mcp
+npx -y unegui.mn-mcp
 ```
 
 ## Documentation
