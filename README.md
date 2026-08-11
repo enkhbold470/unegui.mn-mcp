@@ -12,14 +12,18 @@
 
 ![MCP идэвхгүй vs unegui-mn MCP идэвхтэй харьцуулалт](docs/demo-mcp-comparison.png)
 
-## 🚀 NPX-ээр шууд суулгах & ажиллуулах
+## 🚀 NPX / BunX-ээр нэг тушаалаар ажиллуулах & суулгах
 
 ```bash
-# 1. Claude Desktop эсвэл Cursor-д автоматаар тохируулах:
-npx @enkhbold470/unegui-mcp install
+# 1. Claude Desktop & Cursor-д автоматаар суулгах:
+npx -y @enkhbold470/unegui-mcp install
+# эсвэл bunx:
+bunx @enkhbold470/unegui-mcp install
 
-# 2. Эсвэл MCP серверийг шууд шугамд (STDIO) ажиллуулах:
-npx @enkhbold470/unegui-mcp
+# 2. MCP серверийг шууд ажиллуулах (STDIO mode):
+npx -y @enkhbold470/unegui-mcp
+# эсвэл bunx:
+bunx @enkhbold470/unegui-mcp
 ```
 
 ## Баримт бичиг
