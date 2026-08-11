@@ -12,7 +12,15 @@
 
 ![MCP идэвхгүй vs unegui-mn MCP идэвхтэй харьцуулалт](docs/demo-mcp-comparison.png)
 
-*Зүүн тал: энгийн ChatGPT — ерөнхий хариулт, холбоосгүй. Баруун тал: unegui-mn MCP — бодит зарууд, үнэ, байршил, шууд холбоос.*
+## 🚀 NPX-ээр шууд суулгах & ажиллуулах
+
+```bash
+# 1. Claude Desktop эсвэл Cursor-д автоматаар тохируулах:
+npx @enkhbold470/unegui-mcp install
+
+# 2. Эсвэл MCP серверийг шууд шугамд (STDIO) ажиллуулах:
+npx @enkhbold470/unegui-mcp
+```
 
 ## Баримт бичиг
 

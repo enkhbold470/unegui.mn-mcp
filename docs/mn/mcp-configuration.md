@@ -2,14 +2,48 @@
 
 [← Буцах](../../README.md)
 
-## Cursor / VS Code
+## ⚡ Автомат тохиргоо (Хамгийн хялбар)
 
-`.cursor/mcp.json` эсвэл `.vscode/mcp.json` файлд нэмнэ:
+Терминал дээр дараах тушаалыг ажиллуулбал Claude Desktop болон Cursor-ийн тохиргоог автоматаар хийнэ:
+
+```bash
+npx @enkhbold470/unegui-mcp install
+```
+
+## 🛠️ Гар тохиргоо
+
+### NPX ашиглах:
 
 ```json
 {
   "mcpServers": {
-    "unegui-mn": {
+    "unegui-mcp": {
+      "command": "npx",
+      "args": ["-y", "@enkhbold470/unegui-mcp"]
+    }
+  }
+}
+```
+
+### UVX ашиглах:
+
+```json
+{
+  "mcpServers": {
+    "unegui-mcp": {
+      "command": "uvx",
+      "args": ["unegui-mcp"]
+    }
+  }
+}
+```
+
+### Эх кодоор локал ажиллуулах (Cursor / Claude Desktop):
+
+```json
+{
+  "mcpServers": {
+    "unegui-mcp": {
       "command": "uv",
       "args": [
         "--directory", "/absolute/path/to/unegui.mn-mcp",
@@ -20,8 +54,3 @@
 }
 ```
 
-## Claude Desktop
-
-`claude_desktop_config.json` файлд ижил тохиргоог нэмнэ.
-
-> `/absolute/path/to/unegui.mn-mcp`-ийг өөрийн компьютер дээрх бодит замаар солино.

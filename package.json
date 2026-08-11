@@ -1,0 +1,46 @@
+{
+  "name": "@enkhbold470/unegui-mcp",
+  "version": "1.0.6",
+  "description": "Монголын хамгийн том зарын сайтын MCP сервер / MCP server for unegui.mn — Mongolia's classifieds marketplace",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "unegui-mcp": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node bin/cli.js",
+    "install-mcp": "node bin/cli.js install"
+  },
+  "keywords": [
+    "unegui",
+    "unegui-mn",
+    "unegui-mcp",
+    "mcp",
+    "mcp-server",
+    "claude-desktop",
+    "cursor",
+    "mongolia",
+    "ulaanbaatar",
+    "classifieds",
+    "model-context-protocol"
+  ],
+  "author": "Enkhbold Ganbold <53986637+enkhbold470@users.noreply.github.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enkhbold470/unegui.mn-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/enkhbold470/unegui.mn-mcp/issues"
+  },
+  "homepage": "https://github.com/enkhbold470/unegui.mn-mcp#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

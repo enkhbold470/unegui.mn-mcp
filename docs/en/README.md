@@ -12,7 +12,15 @@ Search, browse, and retrieve detailed listings for vehicles, real estate, electr
 
 ![MCP off vs unegui-mn MCP on comparison](../demo-mcp-comparison.png)
 
-*Left: plain ChatGPT — generic answer, no direct links. Right: unegui-mn MCP — live listings with price, location, and clickable ad links.*
+## 🚀 Quick Install & Run via NPX
+
+```bash
+# 1. Auto-configure Claude Desktop or Cursor:
+npx @enkhbold470/unegui-mcp install
+
+# 2. Or run the stdio MCP server directly:
+npx @enkhbold470/unegui-mcp
+```
 
 ## Documentation
 

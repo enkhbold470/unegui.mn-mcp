@@ -7,16 +7,22 @@
 - [uv](https://docs.astral.sh/uv/) (зөвлөмж) эсвэл pip
 - Python 3.12+
 
-## Суулгах
+## NPX-ээр ажиллах (Хамгийн хялбар)
+
+```bash
+# Claude Desktop & Cursor-д автоматаар суулгах
+npx @enkhbold470/unegui-mcp install
+
+# MCP серверийг шууд ажиллуулах
+npx @enkhbold470/unegui-mcp
+```
+
+## Эх кодноос ажиллуулах
 
 ```bash
 git clone https://github.com/enkhbold470/unegui.mn-mcp.git
 cd unegui.mn-mcp
 uv sync
-```
-
-## Ажиллуулах
-
-```bash
 uv run unegui-mcp
 ```
+
