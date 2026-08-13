@@ -3,24 +3,67 @@
 [Монгол](../../README.md) | **English**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](../../LICENSE)
+[![npm](https://img.shields.io/npm/v/unegui.mn-mcp.svg)](https://www.npmjs.com/package/unegui.mn-mcp)
+[![npm downloads](https://img.shields.io/npm/dm/unegui.mn-mcp.svg)](https://www.npmjs.com/package/unegui.mn-mcp)
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![MCP](https://img.shields.io/badge/MCP-Model%20Context%20Protocol-purple.svg)](https://modelcontextprotocol.io)
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](#development)
 
 > MCP server for [unegui.mn](https://www.unegui.mn) — Mongolia's largest online classifieds marketplace.
 
-Search, browse, and retrieve detailed listings for vehicles, real estate, electronics, jobs, and more — directly from your AI assistant. **Mongolian is the default language**; English queries are also supported.
+Search, browse, and retrieve detailed listings for **vehicles, real estate, electronics, jobs, services, and more** — directly from your AI assistant. **Mongolian is the default language**; English queries are also fully supported.
 
 ![MCP off vs unegui-mn MCP on comparison](../demo-mcp-comparison.png)
 
-## 🚀 Quick Install & Run via NPX
+## Features
+
+| Tool | Description |
+|---|---|
+| 🔍 `search_listings` | Keyword search across all listings (e.g. "Toyota", "2 bedroom") |
+| 📂 `browse_category` | Browse listings by category (vehicles, real estate, etc.) |
+| 📋 `get_listing_details` | Get full details for a specific listing URL |
+| 🗂️ `list_categories` | List all available categories and subcategories |
+| 🆕 `get_recent_listings` | Get the latest listings from the homepage |
+
+## Install
+
+Requires [Node.js 18+](https://nodejs.org) and [uv](https://astral.sh/uv).
 
 ```bash
-# 1. Auto-configure Claude Desktop or Cursor:
 npx -y unegui.mn-mcp install
+```
 
-# 2. Or run the stdio MCP server directly:
+Auto-configures Claude Desktop and Cursor. Restart the app afterward.
+
+## Run
+
+```bash
 npx -y unegui.mn-mcp
 ```
+
+## MCP config (manual)
+
+```json
+{
+  "mcpServers": {
+    "unegui-mcp": {
+      "command": "npx",
+      "args": ["-y", "unegui.mn-mcp"]
+    }
+  }
+}
+```
+
+> npm package: [unegui.mn-mcp](https://www.npmjs.com/package/unegui.mn-mcp)
+
+## Example Prompts
+
+Once MCP is active in Claude Desktop or Cursor, you can ask:
+
+- *"Find Toyota Land Cruiser 300 listings for sale"*
+- *"Are there 2-bedroom apartments for sale in Ulaanbaatar?"*
+- *"Show me the 10 most recent listings"*
+- *"Search for iPhone in the electronics category"*
 
 ## Documentation
 

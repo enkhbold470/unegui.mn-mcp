@@ -2,14 +2,48 @@
 
 [← Back](README.md)
 
-## Cursor / VS Code
+## Auto-configure (simplest)
 
-Add to `.cursor/mcp.json` or `.vscode/mcp.json`:
+```bash
+npx -y unegui.mn-mcp install
+```
+
+Writes `unegui-mcp` into Claude Desktop and Cursor `mcp.json` configs.
+
+## Manual configuration
+
+### NPX (recommended)
 
 ```json
 {
   "mcpServers": {
-    "unegui-mn": {
+    "unegui-mcp": {
+      "command": "npx",
+      "args": ["-y", "unegui.mn-mcp"]
+    }
+  }
+}
+```
+
+### UVX
+
+```json
+{
+  "mcpServers": {
+    "unegui-mcp": {
+      "command": "uvx",
+      "args": ["unegui-mcp"]
+    }
+  }
+}
+```
+
+### Local clone (Cursor / Claude Desktop)
+
+```json
+{
+  "mcpServers": {
+    "unegui-mcp": {
       "command": "uv",
       "args": [
         "--directory", "/absolute/path/to/unegui.mn-mcp",
@@ -19,9 +53,5 @@ Add to `.cursor/mcp.json` or `.vscode/mcp.json`:
   }
 }
 ```
-
-## Claude Desktop
-
-Add the same block to `claude_desktop_config.json`.
 
 > Replace `/absolute/path/to/unegui.mn-mcp` with your local clone path.

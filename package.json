@@ -1,7 +1,7 @@
 {
   "name": "unegui.mn-mcp",
-  "version": "1.0.1",
-  "description": "Монголын хамгийн том зарын сайтын MCP сервер / MCP server for unegui.mn — Mongolia's classifieds marketplace",
+  "version": "1.0.3",
+  "description": "MCP server for unegui.mn — Mongolia's largest classifieds marketplace. Search vehicles, real estate, electronics & jobs with your AI assistant. Монголын хамгийн том зарын сайтын MCP сервер.",
   "publishConfig": {
     "access": "public"
   },
@@ -11,6 +11,9 @@
   },
   "files": [
     "bin",
+    "src/unegui_mcp/*.py",
+    "pyproject.toml",
+    "uv.lock",
     "README.md",
     "LICENSE"
   ],
@@ -24,12 +27,23 @@
     "unegui-mcp",
     "mcp",
     "mcp-server",
+    "model-context-protocol",
     "claude-desktop",
     "cursor",
     "mongolia",
+    "mongolian",
     "ulaanbaatar",
     "classifieds",
-    "model-context-protocol"
+    "marketplace",
+    "real-estate",
+    "vehicles",
+    "cars",
+    "jobs",
+    "electronics",
+    "ai-assistant",
+    "llm-tools",
+    "zarlaga",
+    "zar"
   ],
   "author": "Enkhbold Ganbold <53986637+enkhbold470@users.noreply.github.com>",
   "license": "MIT",

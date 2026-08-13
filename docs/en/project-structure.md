@@ -4,6 +4,9 @@
 
 ```
 unegui.mn-mcp/
+├── bin/cli.js           # npm CLI (npx -y unegui.mn-mcp)
+├── package.json         # npm: unegui.mn-mcp
+├── pyproject.toml       # Python: unegui-mcp
 ├── src/unegui_mcp/
 │   ├── server.py        # MCP tools
 │   ├── scraper.py       # HTTP + HTML parsing
@@ -17,5 +20,6 @@ unegui.mn-mcp/
 │   ├── CHANGELOG.md
 │   └── ...
 ├── README.md            # Mongolian landing page
+├── CLAUDE.md            # Guidance for AI assistants
 └── LICENSE
 ```

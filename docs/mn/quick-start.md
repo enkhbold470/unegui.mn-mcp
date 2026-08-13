@@ -4,16 +4,14 @@
 
 ## Шаардлага
 
-- [uv](https://docs.astral.sh/uv/) (зөвлөмж) эсвэл pip
+- Node.js 18+ (`npx`)
+- [uv](https://docs.astral.sh/uv/) (Python MCP серверийг ажиллуулахад)
 - Python 3.12+
 
 ## NPX-ээр ажиллах (Хамгийн хялбар)
 
 ```bash
-# Claude Desktop & Cursor-д автоматаар суулгах
 npx -y unegui.mn-mcp install
-
-# MCP серверийг шууд ажиллуулах
 npx -y unegui.mn-mcp
 ```
 

@@ -4,19 +4,24 @@
 
 ## Prerequisites
 
-- [uv](https://docs.astral.sh/uv/) (recommended) or pip
-- Python 3.12+
+- Node.js 18+ (for `npx`)
+- [uv](https://docs.astral.sh/uv/) (used under the hood to run the Python MCP server)
 
-## Install
+## NPX (simplest)
+
+```bash
+# Auto-configure Claude Desktop & Cursor
+npx -y unegui.mn-mcp install
+
+# Run the MCP server (STDIO)
+npx -y unegui.mn-mcp
+```
+
+## Run from source
 
 ```bash
 git clone https://github.com/enkhbold470/unegui.mn-mcp.git
 cd unegui.mn-mcp
 uv sync
-```
-
-## Run locally
-
-```bash
 uv run unegui-mcp
 ```

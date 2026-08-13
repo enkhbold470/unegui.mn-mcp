@@ -4,6 +4,9 @@
 
 ```
 unegui.mn-mcp/
+├── bin/cli.js           # npm CLI (npx -y unegui.mn-mcp)
+├── package.json         # npm: unegui.mn-mcp
+├── pyproject.toml       # Python: unegui-mcp
 ├── src/unegui_mcp/
 │   ├── server.py        # MCP хэрэгслүүд
 │   ├── scraper.py       # HTTP + HTML задлах
@@ -17,5 +20,6 @@ unegui.mn-mcp/
 │   ├── CHANGELOG.md
 │   └── ...
 ├── README.md            # Монгол танилцуулга
+├── CLAUDE.md            # AI туслахын гарын авлага
 └── LICENSE
 ```

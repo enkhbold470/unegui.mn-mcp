@@ -6,6 +6,7 @@ const path = require('path');
 const os = require('os');
 
 const packageJson = require('../package.json');
+const packageRoot = path.resolve(__dirname, '..');
 
 const args = process.argv.slice(2);
 
@@ -21,12 +22,14 @@ Usage:
 
 Description:
   Монголын хамгийн том зарын сайтын MCP сервер / MCP server for unegui.mn.
+
+Requires: Node.js 18+ and uv (https://astral.sh/uv)
 `);
   process.exit(0);
 }
 
 if (args.includes('--version') || args.includes('-v')) {
-  console.log(`unegui-mcp v${packageJson.version}`);
+  console.log(`unegui.mn-mcp v${packageJson.version}`);
   process.exit(0);
 }
 
@@ -36,15 +39,42 @@ if (args.includes('install') || args.includes('--install') || args.includes('set
   runServer();
 }
 
+function enrichedEnv() {
+  const home = os.homedir();
+  const extra = [
+    path.join(home, '.local', 'bin'),
+    path.join(home, '.cargo', 'bin'),
+    '/opt/homebrew/bin',
+    '/usr/local/bin',
+    '/home/linuxbrew/.linuxbrew/bin',
+  ];
+  const pathKey = process.platform === 'win32' ? 'Path' : 'PATH';
+  const current = process.env[pathKey] || process.env.PATH || '';
+  return {
+    ...process.env,
+    [pathKey]: [...extra, current].filter(Boolean).join(path.delimiter),
+  };
+}
+
+function isCmdAvailable(cmd, env) {
+  try {
+    execSync(process.platform === 'win32' ? `where ${cmd}` : `command -v ${cmd}`, {
+      stdio: 'ignore',
+      env,
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function installConfig() {
   console.log('\n🚀 Configuring Unegui.mn MCP Server for Claude Desktop & Cursor...\n');
 
   const homeDir = os.homedir();
   const platform = os.platform();
-
   const configs = [];
 
-  // Claude Desktop config path
   let claudePath;
   if (platform === 'darwin') {
     claudePath = path.join(homeDir, 'Library', 'Application Support', 'Claude', 'claude_desktop_config.json');
@@ -53,11 +83,9 @@ function installConfig() {
   } else {
     claudePath = path.join(homeDir, '.config', 'Claude', 'claude_desktop_config.json');
   }
-
   configs.push({ name: 'Claude Desktop', path: claudePath });
 
-  // Cursor config paths
-  let cursorPathPrimary = path.join(homeDir, '.cursor', 'mcp.json');
+  const cursorPathPrimary = path.join(homeDir, '.cursor', 'mcp.json');
   let cursorPathAlt;
   if (platform === 'darwin') {
     cursorPathAlt = path.join(homeDir, 'Library', 'Application Support', 'Cursor', 'User', 'globalStorage', 'cursor.mcp', 'mcp.json');
@@ -66,46 +94,33 @@ function installConfig() {
   } else {
     cursorPathAlt = path.join(homeDir, '.config', 'Cursor', 'User', 'globalStorage', 'cursor.mcp', 'mcp.json');
   }
-
   configs.push({ name: 'Cursor (~/.cursor/mcp.json)', path: cursorPathPrimary });
   configs.push({ name: 'Cursor Global Storage', path: cursorPathAlt });
 
-  let updatedCount = 0;
-
   const serverConfig = {
-    command: 'uvx',
-    args: ['unegui-mcp']
+    command: 'npx',
+    args: ['-y', 'unegui.mn-mcp'],
   };
 
+  let updatedCount = 0;
   for (const cfg of configs) {
     try {
       const dir = path.dirname(cfg.path);
-
       if (!fs.existsSync(dir)) {
-        // If parent directory doesn't exist, only create for Claude or primary Cursor path if dir exists
-        if (!cfg.name.includes('Global Storage')) {
-          fs.mkdirSync(dir, { recursive: true });
-        } else {
-          continue;
-        }
+        if (cfg.name.includes('Global Storage')) continue;
+        fs.mkdirSync(dir, { recursive: true });
       }
 
       let jsonContent = {};
       if (fs.existsSync(cfg.path)) {
         try {
-          const raw = fs.readFileSync(cfg.path, 'utf8');
-          jsonContent = JSON.parse(raw);
-        } catch (e) {
+          jsonContent = JSON.parse(fs.readFileSync(cfg.path, 'utf8'));
+        } catch {
           jsonContent = {};
         }
       }
-
-      if (!jsonContent.mcpServers) {
-        jsonContent.mcpServers = {};
-      }
-
+      if (!jsonContent.mcpServers) jsonContent.mcpServers = {};
       jsonContent.mcpServers['unegui-mcp'] = serverConfig;
-
       fs.writeFileSync(cfg.path, JSON.stringify(jsonContent, null, 2), 'utf8');
       console.log(`  ✅ Successfully updated ${cfg.name}:`);
       console.log(`     ${cfg.path}`);
@@ -116,22 +131,24 @@ function installConfig() {
   }
 
   console.log(`\n🎉 Installation complete (${updatedCount} app configuration(s) updated).`);
-  console.log('📌 Please restart Claude Desktop or Cursor to load unegui-mcp.\n');
+  console.log('📌 Restart Claude Desktop or Cursor to load unegui-mcp.');
+  console.log('📌 Requires uv: https://astral.sh/uv\n');
 }
 
 function runServer() {
-  const runner = findRunner();
+  const env = enrichedEnv();
+  const runner = findRunner(env);
 
   if (!runner) {
-    console.error('❌ Error: Could not find "uvx", "pipx", or "unegui-mcp" in PATH.');
-    console.error('Please install uv (https://astral.sh/uv) or pipx to run unegui-mcp:');
+    console.error('❌ Could not start unegui.mn-mcp.');
+    console.error('Install uv (required to run the Python MCP server):');
     console.error('  curl -LsSf https://astral.sh/uv/install.sh | sh');
     process.exit(1);
   }
 
   const child = spawn(runner.cmd, runner.args, {
     stdio: 'inherit',
-    env: process.env
+    env,
   });
 
   child.on('error', (err) => {
@@ -140,38 +157,43 @@ function runServer() {
   });
 
   child.on('exit', (code, signal) => {
-    if (signal) {
-      process.kill(process.pid, signal);
-    } else {
-      process.exit(code || 0);
-    }
+    if (signal) process.kill(process.pid, signal);
+    else process.exit(code || 0);
   });
 }
 
-function findRunner() {
-  const isCmdAvailable = (cmd) => {
-    try {
-      execSync(process.platform === 'win32' ? `where ${cmd}` : `command -v ${cmd}`, { stdio: 'ignore' });
-      return true;
-    } catch (e) {
-      return false;
-    }
-  };
+function hasPythonProject(root) {
+  return (
+    fs.existsSync(path.join(root, 'pyproject.toml')) &&
+    fs.existsSync(path.join(root, 'src', 'unegui_mcp'))
+  );
+}
 
-  if (isCmdAvailable('uvx')) {
+function findRunner(env) {
+  // Prefer local package root (bundled in npm tarball or git checkout)
+  if (hasPythonProject(packageRoot)) {
+    if (isCmdAvailable('uvx', env)) {
+      return { cmd: 'uvx', args: ['--from', packageRoot, 'unegui-mcp', ...args] };
+    }
+    if (isCmdAvailable('uv', env)) {
+      return {
+        cmd: 'uv',
+        args: ['run', '--directory', packageRoot, 'unegui-mcp', ...args],
+      };
+    }
+  }
+
+  // Fallback: PyPI (if published later)
+  if (isCmdAvailable('uvx', env)) {
     return { cmd: 'uvx', args: ['--from', 'unegui-mcp', 'unegui-mcp', ...args] };
   }
 
-  if (isCmdAvailable('pipx')) {
+  if (isCmdAvailable('pipx', env)) {
     return { cmd: 'pipx', args: ['run', 'unegui-mcp', ...args] };
   }
 
-  if (isCmdAvailable('unegui-mcp')) {
+  if (isCmdAvailable('unegui-mcp', env)) {
     return { cmd: 'unegui-mcp', args: [...args] };
-  }
-
-  if (isCmdAvailable('python3')) {
-    return { cmd: 'python3', args: ['-m', 'unegui_mcp.server', ...args] };
   }
 
   return null;
